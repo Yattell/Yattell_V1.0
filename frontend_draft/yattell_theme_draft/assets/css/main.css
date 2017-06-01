@@ -1805,7 +1805,7 @@
 				position: relative;
 				height: 6em;
 				padding-top: 2em;
-				margin: 4px auto;
+				margin: 0px auto;
 				cursor: default;
 			}
 
@@ -1815,6 +1815,7 @@
 
 				#nav ul {
 					margin: 0;
+					padding: 0;
 					text-align: center;
 				}
 
@@ -2548,5 +2549,19 @@
 				padding-top: 0;
 				border-top: 0;
 			}
+
+			#side-scroller {
+				padding-left: 1em;
+				padding-right: 1em;
+			}
+
+				#side-scroller ul {
+
+				}
+
+				#side-scroller li {
+					padding-top: 0.5em;
+					padding-bottom: 0.5em;
+				}
 
 	}

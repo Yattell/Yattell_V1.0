@@ -740,7 +740,7 @@
 				position: relative;
 				height: 6em;
 				padding-top: 2em;
-				margin: 0px auto;
+				margin: 4px auto;
 				cursor: default;
 
 				> ul > li > ul {
@@ -755,12 +755,13 @@
 
 				li {
 					display: inline-block;
-					margin: 0em 1.5em;
+					padding-left: 4em;
+					padding-right: 4em;
 
 					a {
 						display: inline-block;
 						line-height: 2.5em;
-						padding: 0 1.25em 0 1.25em;
+						padding: 0;
 						text-decoration: none;
 						font-size: 1.5em;
 						color: #727272;
@@ -789,6 +790,10 @@
 							background: #0087cd !important;
 							color: #FFFFFF !important;
 						}
+					}
+
+					+li {
+						border-left:1px solid #ffffff
 					}
 				}
 
