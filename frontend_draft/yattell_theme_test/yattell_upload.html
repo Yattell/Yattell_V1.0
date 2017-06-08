@@ -68,9 +68,12 @@
                   <!-- Buttons -->
                   <section>
                     <ul class="actions">
-                      <li><a href="#" class="button special icon fa-plus">Upload Images</a></li>
                       <li><a href="#" class="button special icon fa-paper-plane">Submit</a></li>
                     </ul>
+										<form action "http://localhost:3000/" method="POST" enctype="multipart/form-data">
+ 											<input type="file" name="myimage" ></input>
+								 			<input type="submit" name="submit" value="Upload Images"></input>
+										</form>
                   </section>
 
                 </div>
