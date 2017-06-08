@@ -1,0 +1,32 @@
+// Misc.
+	$misc: (
+		z-index-base:	10000
+	);
+
+// Duration.
+	$duration: (
+		navPanel: 0.5s
+	);
+
+// Size.
+	$size: (
+		navPanel: 275px
+	);
+
+// Font.
+	$font: (
+	family: ('Open Sans', sans-serif),
+	family-header: ('Lato', sans-serif),
+	weight-normal: 300,
+	weight-bold: 600,
+	letter-spacing: -0.025em
+	);
+
+// Palette.
+	$palette: (
+	bg: #ffffff,
+	fbody: #3d3d3d,
+	fheader: #262626,
+	fcaption: #2d2d2d,
+	flink: #0087cd,
+	);

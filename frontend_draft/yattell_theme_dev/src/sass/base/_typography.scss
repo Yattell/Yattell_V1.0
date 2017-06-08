@@ -1,0 +1,93 @@
+/* Typography */
+
+  body {
+    background: #ececec;
+    font-family: _font(family);
+    font-weight: _font(weight-normal);
+    background-color: _palette(bg);
+    color: _palette(fbody);
+  }
+
+  input, select, textarea {
+    font-family: _font(family);
+    font-weight: _font(weight-normal);
+    color: _palette(fbody);
+  }
+
+  br.clear {
+    clear: both;
+  }
+
+  strong, b {
+    font-weight: _font(weight-bold);
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: _font(weight-bold);
+    color: _palette(fheader);
+    font-family: _font(family-header);
+  }
+
+  h1 {
+		font-size: 2.5em;
+		line-height: 1.2;
+	}
+
+	h2 {
+		font-size: 2.0em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.3em;
+	}
+
+	h5 {
+		font-size: 1.1em;
+	}
+
+	h6 {
+		font-size: 0.9em;
+	}
+
+  p, ul, ol, dl, table {
+    margin: 1em;
+  }
+
+  p {
+    line-height: 2em;
+  }
+
+  a {
+    color: _palette(flink);
+  }
+
+  sub {
+    font-size: 0.8em;
+    position: relatiev;
+    top: 0.5em;
+  }
+
+  sup {
+    font-size: 0.8em;
+    position: relative;
+    top: -0.5em;
+  }
+
+  hr {
+    border: 0;
+    border-top: solid 1px #ddd;
+  }
+
+  blockquote {
+    border-left: solid 0.5em #ddd;
+    padding: 1em 0 1em 2em;
+    font-style: italic;
+  }
