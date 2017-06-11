@@ -2,7 +2,7 @@
 
 	#banner {
 		@include padding(8em, 0);
-		background: #f6f6f6;
+		background: #505E5F;
 		text-align: center;
 
 		h2 {
@@ -10,11 +10,13 @@
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
+			color: #f6f6f6;
 		}
 
 		p {
 			font-size: 1.5em;
 			margin-bottom: 1.75em;
+			color: #f6f6f6;
 		}
 
 		@include breakpoint(xlarge) {

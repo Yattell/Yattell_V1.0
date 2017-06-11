@@ -1195,7 +1195,7 @@ body {
   html, body {
     min-width: 320px; } }
 body {
-  background: #F2F7FB; }
+  background-color: #f7f7f7; }
   body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     -moz-animation: none !important;
     -webkit-animation: none !important;
@@ -1838,7 +1838,7 @@ button,
   .button:disabled {
     background-color: #262F3F !important;
     box-shadow: inset 0 -0.15em 0 0 rgba(0, 0, 0, 0.15);
-    color: #F2F7FB !important;
+    color: #ffffff !important;
     cursor: default;
     opacity: 0.25; }
   @media screen and (max-width: 480px) {
@@ -1950,10 +1950,10 @@ body {
   -webkit-transform: translateX(20em);
   -ms-transform: translateX(20em);
   transform: translateX(20em);
-  -moz-transition: -moz-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
-  -webkit-transition: -webkit-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
-  -ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
-  transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
+  -moz-transition: -moz-transform  ease, box-shadow  ease, visibility ;
+  -webkit-transition: -webkit-transform  ease, box-shadow  ease, visibility ;
+  -ms-transition: -ms-transform  ease, box-shadow  ease, visibility ;
+  transition: transform  ease, box-shadow  ease, visibility ;
   -webkit-overflow-scrolling: touch;
   background: #647d8f;
   box-shadow: none;
@@ -2037,16 +2037,18 @@ body {
 /* Banner */
 #banner {
   padding: 8em 0 6em 0;
-  background: #f6f6f6;
+  background: #505E5F;
   text-align: center; }
   #banner h2 {
     font-size: 4em;
     line-height: 1em;
     margin: 0 0 0.5em 0;
-    padding: 0; }
+    padding: 0;
+    color: #f6f6f6; }
   #banner p {
     font-size: 1.5em;
-    margin-bottom: 1.75em; }
+    margin-bottom: 1.75em;
+    color: #f6f6f6; }
   @media screen and (max-width: 1680px) {
     #banner {
       padding: 7em 0 5em 0; } }
@@ -2071,7 +2073,8 @@ body {
 
 /* Main */
 #main {
-  padding: 4em 0 2em 0; }
+  padding: 4em 6em 2em 6em;
+  background-color: #ffffff; }
   @media screen and (max-width: 736px) {
     #main {
       padding: 3em 0 1em 0; } }

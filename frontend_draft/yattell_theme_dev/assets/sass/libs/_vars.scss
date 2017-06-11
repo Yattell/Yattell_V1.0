@@ -5,7 +5,7 @@
 
 // Duration.
 	$duration: (
-		nav:				0.5s,
+		navPanel:				0.5s,
 		transition:			0.2s
 	);
 
@@ -14,7 +14,8 @@
 		border-radius:		0px,
 		border-width:		1px,
 		element-height:		2.75em,
-		element-margin:		2em
+		element-margin:		2em,
+		navPanel:				20em
 	);
 
 // Font.
@@ -26,9 +27,9 @@
 	letter-spacing: -0.025em
 	);
 
-	// Palette: simple-gold
+	// Palette: mutedblues
 	$palette: (
-    bg:					#F2F7FB,
+    bg:					#ffffff,
     fg:					#262F3F,
     fg-bold:			#555,
     fg-light:			#bbb,

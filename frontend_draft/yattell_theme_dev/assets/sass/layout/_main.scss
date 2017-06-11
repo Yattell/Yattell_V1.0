@@ -1,7 +1,9 @@
 /* Main */
 
 	#main {
-		@include padding(4em, 0);
+		@include padding(4em, 6em);
+
+		background-color: #ffffff;
 
 		@include breakpoint(small) {
 			@include padding(3em, 0);

@@ -70,14 +70,21 @@
                     <ul class="actions">
                       <li><a href="#" class="button special icon fa-paper-plane">Submit</a></li>
                     </ul>
-										<form action "http://localhost:3000/" method="POST" enctype="multipart/form-data">
- 											<input type="file" name="myimage" ></input>
-								 			<input type="submit" name="submit" value="Upload Images"></input>
-										</form>
                   </section>
 
                 </div>
               </form>
+
+							<form id="imageUpload" method="POST" enctype="multipart/form-data">
+								<input type="file" name="myimage" ></input>
+								<input type="submit" id="btnSubmitImg" value="Upload Images"></input>
+							</form>
+
+							<form id="documentUpload" method="POST" enctype="multipart/form-data">
+								<input type="text" name="content" ></input>
+								<input type="submit" id="btnSubmitDoc" value="Submit"</input>
+							</form>
+
             </section>
           </div>
         </div>
@@ -99,8 +106,10 @@
       <script src="assets/js/jquery.slidertron.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="http://malsup.github.com/jquery.form.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/uploads.js"></script>
 
 	</body>
 </html>
