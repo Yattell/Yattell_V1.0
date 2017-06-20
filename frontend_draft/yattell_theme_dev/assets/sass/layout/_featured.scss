@@ -1,0 +1,9 @@
+/* Featured */
+#featured {
+  @include padding(8em, 0);
+  position: relative;
+	background: #212121 url('images/overlay1.png') repeat;
+  text-align: center;
+  top: 0;
+
+}

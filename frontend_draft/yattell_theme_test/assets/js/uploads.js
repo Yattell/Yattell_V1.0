@@ -47,31 +47,23 @@ $(document).ready(function () {
 
     $("#btnSubmitDoc").click(function (event) {
 
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
-
         // Get form
-        var form = $('#documentUpload')[0];
+        var content = $("#article").val();
 
-    // Create an FormData object
-        var content = new FormData(form);
-
-    // If you want to add an extra field for the FormData
-        content.append("CustomField", "This is some extra data, testing");
+        $("#commentBox").val("");
+        console.log(content);
 
     // disabled the submit button
         $("#btnSubmitDoc").prop("disabled", true);
 
         $.ajax({
             type: "POST",
-            enctype: 'multipart/form-data',
-            url: "http://174.138.59.72:3000/documents/",
-            crossdomain: true,
-            content: content,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
+            processData: true,
+            url: "http://localhost:3000/documents",
+            data: jQuery.param({
+              'content': content
+            }),
+            dataType: "JSON",
             success: function (data) {
 
                 $("#result").text(data);

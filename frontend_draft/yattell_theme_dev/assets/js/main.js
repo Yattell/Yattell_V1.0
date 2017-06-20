@@ -1,86 +1,199 @@
-(function() {
+(function($) {
 
-	"use strict";
+	skel.breakpoints({
+		xlarge:	'(max-width: 1680px)',
+		large:	'(max-width: 1280px)',
+		medium:	'(max-width: 980px)',
+		small:	'(max-width: 736px)',
+		xsmall:	'(max-width: 480px)'
+	});
 
-	// Methods/polyfills.
+	/**
+	 * Applies parallax scrolling to an element's background image.
+	 * @return {jQuery} jQuery object.
+	 */
+	$.fn._parallax = (skel.vars.browser == 'ie' || skel.vars.mobile) ? function() { return $(this) } : function(intensity) {
 
-		// addEventsListener
-			var addEventsListener=function(o,t,e){var n,i=t.split(" ");for(n in i)o.addEventListener(i[n],e)}
+		var	$window = $(window),
+			$this = $(this);
 
-		// classList | (c) @remy | github.com/remy/polyfills | rem.mit-license.org
-			!function(){function t(t){this.el=t;for(var n=t.className.replace(/^\s+|\s+$/g,"").split(/\s+/),i=0;i<n.length;i++)e.call(this,n[i])}function n(t,n,i){Object.defineProperty?Object.defineProperty(t,n,{get:i}):t.__defineGetter__(n,i)}if(!("undefined"==typeof window.Element||"classList"in document.documentElement)){var i=Array.prototype,e=i.push,s=i.splice,o=i.join;t.prototype={add:function(t){this.contains(t)||(e.call(this,t),this.el.className=this.toString())},contains:function(t){return-1!=this.el.className.indexOf(t)},item:function(t){return this[t]||null},remove:function(t){if(this.contains(t)){for(var n=0;n<this.length&&this[n]!=t;n++);s.call(this,n,1),this.el.className=this.toString()}},toString:function(){return o.call(this," ")},toggle:function(t){return this.contains(t)?this.remove(t):this.add(t),this.contains(t)}},window.DOMTokenList=t,n(Element.prototype,"classList",function(){return new t(this)})}}();
+		if (this.length == 0 || intensity === 0)
+			return $this;
 
-	// Vars.
-		var	$body = document.querySelector('body');
+		if (this.length > 1) {
 
-	// Breakpoints.
-		skel.breakpoints({
-			xlarge:	'(max-width: 1680px)',
-			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
-			small:	'(max-width: 736px)',
-			xsmall:	'(max-width: 480px)'
-		});
+			for (var i=0; i < this.length; i++)
+				$(this[i])._parallax(intensity);
 
-	// Disable animations/transitions until everything's loaded.
-		$body.classList.add('is-loading');
+			return $this;
 
-		window.addEventListener('load', function() {
-			$body.classList.remove('is-loading');
-		});
+		}
 
-	// Nav.
-		var	$nav = document.querySelector('#nav'),
-			$navToggle = document.querySelector('a[href="#nav"]'),
-			$navClose;
+		if (!intensity)
+			intensity = 0.25;
 
-		// Event: Prevent clicks/taps inside the nav from bubbling.
-			addEventsListener($nav, 'click touchend', function(event) {
-				event.stopPropagation();
+		$this.each(function() {
+
+			var $t = $(this),
+				on, off;
+
+			on = function() {
+
+				$t.css('background-position', 'center 100%, center 100%, center 0px');
+
+				$window
+					.on('scroll._parallax', function() {
+
+						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
+
+						$t.css('background-position', 'center ' + (pos * (-1 * intensity)) + 'px');
+
+					});
+
+			};
+
+			off = function() {
+
+				$t
+					.css('background-position', '');
+
+				$window
+					.off('scroll._parallax');
+
+			};
+
+			skel.on('change', function() {
+
+				if (skel.breakpoint('large').active)
+					(off)();
+				else
+					(on)();
+
 			});
 
-		// Event: Hide nav on body click/tap.
-			addEventsListener($body, 'click touchend', function(event) {
-				$nav.classList.remove('visible');
+		});
+
+		$window
+			.off('load._parallax resize._parallax')
+			.on('load._parallax resize._parallax', function() {
+				$window.trigger('scroll');
 			});
 
-		// Toggle.
+		return $(this);
 
-			// Event: Toggle nav on click.
-				$navToggle.addEventListener('click', function(event) {
+	};
 
-					event.preventDefault();
-					event.stopPropagation();
+	$(function() {
 
-					$nav.classList.toggle('visible');
+		var	$window = $(window),
+			$header = $('#header'),
+			$banner = $('#banner'),
+			$body = $('body');
+
+		// Disable animations/transitions until the page has loaded.
+			$body.addClass('is-loading');
+
+			$window.on('load', function() {
+				window.setTimeout(function() {
+					$body.removeClass('is-loading');
+				}, 100);
+			});
+
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
+
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
+				$.prioritize(
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
+				);
+			});
+
+		// Scrolly.
+			$('.scrolly').scrolly();
+
+		// Header.
+			if (skel.vars.IEVersion < 9)
+				$header.removeClass('alt');
+
+			if ($banner.length > 0
+			&&	$header.hasClass('alt')) {
+
+				$window.on('resize', function() { $window.trigger('scroll'); });
+
+				$banner.scrollex({
+					bottom:		$header.outerHeight(),
+					terminate:	function() { $header.removeClass('alt'); },
+					enter:		function() { $header.addClass('alt'); },
+					leave:		function() { $header.removeClass('alt'); }
+				});
+
+			}
+
+		// Banner.
+			if ($banner.length > 0)
+				$banner._parallax(0.5);
+
+		// Dropdowns.
+			$('#nav > ul').dropotron({
+				alignment: 'right',
+				hideDelay: 350,
+				baseZIndex: 100000
+			});
+
+		// Menu.
+			$('<a href="#navPanel" class="navPanelToggle button alt">Menu</a>')
+				.appendTo($header);
+
+			$(	'<div id="navPanel">' +
+					'<nav>' +
+						$('#nav') .navList() +
+					'</nav>' +
+					'<a href="#navPanel" class="close"></a>' +
+				'</div>')
+					.appendTo($body)
+					.panel({
+						delay: 500,
+						hideOnClick: true,
+						hideOnSwipe: true,
+						resetScroll: true,
+						resetForms: true,
+						side: 'right'
+					});
+
+			if (skel.vars.os == 'wp'
+			&&	skel.vars.osVersion < 10)
+				$('#navPanel')
+					.css('transition', 'none');
+
+		// Tabs.
+			$('.tabs').selectorr({
+				titleSelector: 'h3',
+				delay: 250
+			});
+
+		// Quotes.
+			$('.quotes > article')
+				.each(function() {
+
+					var	$this = $(this),
+						$image = $this.find('.image'),
+						$img = $image.find('img'),
+						x;
+
+					// Assign image.
+						$this.css('background-image', 'url(' + $img.attr('src') + ')');
+
+					// Set background position.
+						if (x = $img.data('position'))
+							$this.css('background-position', x);
+
+					// Hide image.
+						$image.hide();
 
 				});
 
-		// Close.
+	});
 
-			// Create element.
-				$navClose = document.createElement('a');
-					$navClose.href = '#';
-					$navClose.className = 'close';
-					$navClose.tabIndex = 0;
-					$nav.appendChild($navClose);
-
-			// Event: Hide on ESC.
-				window.addEventListener('keydown', function(event) {
-
-					if (event.keyCode == 27)
-						$nav.classList.remove('visible');
-
-				});
-
-			// Event: Hide nav on click.
-				$navClose.addEventListener('click', function(event) {
-
-					event.preventDefault();
-					event.stopPropagation();
-
-					$nav.classList.remove('visible');
-
-				});
-
-})();
+})(jQuery);

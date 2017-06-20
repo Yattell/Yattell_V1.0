@@ -1,0 +1,43 @@
+/*Article Stub*/
+
+.articleStub {
+  @include padding (0, 0);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+    .thumbnail {
+      img {
+        position: absolute;
+        size: fill;
+        width: 100%;
+        top: 0;
+        left: 0;
+        line-height: 0;
+      }
+    }
+
+    .caption {
+      position: absolute;
+      z-index: _misc(z-index-base) + 1;
+      width: 100%;
+      top: 10em;
+      text-align: left;
+
+      p {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        margin: 0;
+        color: _palette(accent1, fg-bold);
+        font-weight: 400;
+      }
+
+      span {
+        display: block;
+        text-decoration: none;
+        font-weight: 300;
+        color: #b4b4b4;
+        font-size: 2em;
+      }
+    }
+}

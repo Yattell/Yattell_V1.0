@@ -19,18 +19,18 @@
 		reset: 'full',
 		boxModel: 'border',
 		containers: 80em,
-		grid: ( gutters: 2em ),
+		grid: ( gutters: 1.5em ),
 		breakpoints: (
 			large: (
 				containers: 65em,
-				grid: ( gutters: 1.5em )
+				grid: ( gutters: 1.25em )
 			),
 			medium: (
 				containers: 90%
 			),
 			small: (
 				containers: (90%, true),
-				grid: ( gutters: 1.25em )
+				grid: ( gutters: 1.0em )
 			)
 		)
 	));
@@ -51,11 +51,18 @@
 	@import 'components/table';
 	@import 'components/button';
 	@import 'components/grid-demo';
+	@import 'components/articleStub';
+	@import 'components/thumbnail';
+	@import 'components/sectionSeparator';
 
 // Layout.
-
+	@import 'layout/stubWrapper';
 	@import 'layout/header';
-	@import 'layout/nav';
+	@import 'layout/navPanel';
 	@import 'layout/banner';
+	@import 'layout/featured';
 	@import 'layout/main';
 	@import 'layout/footer';
+	@import 'layout/feedWrapper';
+	@import 'layout/feedArticleWrapper';
+	@import 'layout/abstractWrapper';

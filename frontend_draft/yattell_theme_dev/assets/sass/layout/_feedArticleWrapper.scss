@@ -1,0 +1,74 @@
+/* Feed Article Wrapper */
+
+.feedArticleWrapper {
+  @include padding(0em, 0.5em, (0.5em, 0, 0, 0));
+  margin-bottom: 0.5em;
+  background-color: #f6f6f6;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .thumbnail {
+    img {
+      width:100%;
+    }
+
+    .caption {
+      font-weight: 300;
+      opacity: 0.7;
+      font-style: italic;
+    }
+  }
+
+  .infoWrapper {
+    display: block;
+    height: 10%;
+    margin-bottom: 0.2em;
+
+    .tag {
+      border-radius: 50px;
+      display: inline-block;
+      @include padding(0em, 0.7em);
+      margin-right: 0.2em;
+      color:#f6f6f6;
+
+      &.business {
+        background-color: _palette(accent1, bg);
+      }
+
+      &.product {
+        background-color: _palette(accent2, bg);
+      }
+
+      &.finance {
+        background-color: _palette(accent3, bg);
+      }
+    }
+
+    .date {
+      opacity: 0.5;
+      display: inline-block;
+      float: right;
+      font-weight: 300;
+    }
+  }
+
+  .abstractWrapper {
+    display: inline-block;
+    @include padding(0em, 1em);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 90%;
+
+    h3 {
+      margin-bottom: 0.5em;
+
+    }
+
+    p {
+      @include padding(0.5em, 0);
+    }
+  }
+}

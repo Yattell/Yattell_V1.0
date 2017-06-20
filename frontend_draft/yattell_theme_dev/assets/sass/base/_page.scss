@@ -18,7 +18,11 @@
 		}
 
 	body {
-		background-color:		#f7f7f7;
+		background-color:		#f6f6f6;
+
+		@include breakpoint(medium){
+			background-color: #f6f6f6;
+		}
 
 		// Prevents animation/transition "flicker" on page load.
 		// Automatically added/removed by js/main.js.

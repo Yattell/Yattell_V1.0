@@ -1,0 +1,27 @@
+/*Stub Wrapper*/
+#stubWrapper {
+  height: 450px;
+  border-radius:5px;
+  background-color: #c6c6c6;
+  @include padding(0.3em, 0.3em);
+
+  hr {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  .articleStub {
+    top: 0;
+    left: 0;
+    max-height: 60%;
+  }
+
+  .stubAbstract {
+    @include padding(0.5em,0.5em);
+    display: block;
+    position: relative;
+    p {
+      color: _palette(accent4, bg);
+    }
+  }
+}

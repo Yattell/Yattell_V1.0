@@ -1,0 +1,14 @@
+/* Thumbnail */
+
+.thumbnail {
+  > a {
+    > img {
+      position: relative;
+      size: fill;
+      width: 100%;
+      top: 0;
+      left: 0;
+      line-height: 0;
+    }
+  }
+}

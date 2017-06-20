@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/simplemde.min.css" />
+		<link rel="stylesheet" href="assets/css/logos.css />"
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="landing">
@@ -66,11 +68,7 @@
                   </div>
 
                   <!-- Buttons -->
-                  <section>
-                    <ul class="actions">
-                      <li><a href="#" class="button special icon fa-paper-plane">Submit</a></li>
-                    </ul>
-                  </section>
+									<input type="submit" id="btnSubmitArticle" value="Upload Article"></input>
 
                 </div>
               </form>
@@ -78,11 +76,6 @@
 							<form id="imageUpload" method="POST" enctype="multipart/form-data">
 								<input type="file" name="myimage" ></input>
 								<input type="submit" id="btnSubmitImg" value="Upload Images"></input>
-							</form>
-
-							<form id="documentUpload" method="POST" enctype="multipart/form-data">
-								<input type="text" name="content" ></input>
-								<input type="submit" id="btnSubmitDoc" value="Submit"</input>
 							</form>
 
             </section>
@@ -110,6 +103,10 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/uploads.js"></script>
+			<script src="assets/js/simplemde.min.js"></script>
+			<script>
+				var simplemde = new SimpleMDE({ element: document.getElementById("article")});
+			</script>
 
 	</body>
 </html>

@@ -3,28 +3,28 @@
 	body, input, select, textarea {
 		color: _palette(fg);
 		font-family: _font(family);
-		font-size: 15pt;
+		font-size: 14pt;
 		font-weight: _font(weight);
 		line-height: 1.65;
 
 		@include breakpoint(xlarge) {
-			font-size: 14pt;
+			font-size: 12pt;
 		}
 
 		@include breakpoint(large) {
-			font-size: 14pt;
+			font-size: 11pt;
 		}
 
 		@include breakpoint(medium) {
-			font-size: 13pt;
+			font-size: 10pt;
 		}
 
 		@include breakpoint(small) {
-			font-size: 12pt;
+			font-size: 9pt;
 		}
 
 		@include breakpoint(xsmall) {
-			font-size: 12pt;
+			font-size: 8pt;
 		}
 	}
 

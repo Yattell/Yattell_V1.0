@@ -1,0 +1,21 @@
+/* Section Separator */
+.sectionSeparator {
+  @include padding(0em, 0.5em);
+  display: block;
+
+  &.alt {
+    border-left: solid 3px _palette(accent1, bg);
+  }
+
+  &.alt2 {
+    border-left: solid 3px _palette(accent2, bg);
+  }
+
+  &.alt3 {
+    border-left: solid 3px _palette(accent3, bg);
+  }
+
+  &.alt4 {
+    border-left: solid 3px _palette(accent4, bg);
+  }
+}
