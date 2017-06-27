@@ -173,6 +173,36 @@
 				delay: 250
 			});
 
+
+		// Slider.
+			var $slider = $('#slider');
+			if ($slider.length > 0) {
+
+				$slider.slidertron({
+					mode: 'fade',
+					seamlessWrap: false,
+					viewerSelector: '.viewer',
+					reelSelector: '.viewer .reel',
+					slidesSelector: '.viewer .reel .slide',
+					advanceDelay: 7000,
+					speed: 600,
+					fadeInSpeed: 1500,
+					autoFit: true,
+					autoFitAspectRatio: (1200 / 832),
+					navPreviousSelector: '.previous-button',
+					navNextSelector: '.next-button',
+					indicatorSelector: '.indicator ul li',
+					slideLinkSelector: '.link'
+				});
+
+				$window
+					.on('resize load', function() {
+						$slider.trigger('slidertron_reFit');
+					})
+					.trigger('resize');
+
+			}
+
 		// Quotes.
 			$('.quotes > article')
 				.each(function() {

@@ -1,0 +1,90 @@
+/* Slider */
+
+	#slider {
+		background: #111;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+		width: 100%;
+		margin-bottom: 0;
+    cursor: default;
+
+    .viewer {
+      margin: 0 auto;
+
+      .reel {
+        display: none;
+
+        .slide {
+          position: relative;
+
+          img {
+						width: 100%;
+            line-height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    .info {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      top: 7em;
+      right: 4em;
+      padding: 0px 0px 20px 30px;
+      text-align: right;
+
+      h2 {
+        opacity: 0.75;
+        line-height: 1.25em;
+        font-size: 3em;
+        font-weight: 200;
+        color: #ffffff;
+        margin: 0 0 0.5em 0;
+      }
+
+      span {
+        display: block;
+        text-decoration: none;
+        opacity: 0.75;
+        font-weight: 200;
+        color: #b4b3b3;
+        font-size: 2.00em;
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      bottom: 2em;
+      right: 4em;
+      height: 50px;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        li {
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          text-indent: -9999px;
+          background: #555;
+          background: rgba(255, 255, 255, 0.2);
+          margin: 0 0.25em 0 0.25em;
+          border-radius: 50%;
+
+          &.active {
+            background: #fff;
+            background: rgba(255, 255, 255, 0.6);
+          }
+        }
+      }
+    }
+  }

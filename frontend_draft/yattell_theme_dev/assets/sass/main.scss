@@ -22,7 +22,7 @@
 		grid: ( gutters: 1.5em ),
 		breakpoints: (
 			large: (
-				containers: 65em,
+				containers: 68em,
 				grid: ( gutters: 1.25em )
 			),
 			medium: (
@@ -54,6 +54,7 @@
 	@import 'components/articleStub';
 	@import 'components/thumbnail';
 	@import 'components/sectionSeparator';
+	@import 'components/slider';
 
 // Layout.
 	@import 'layout/stubWrapper';
@@ -66,3 +67,4 @@
 	@import 'layout/feedWrapper';
 	@import 'layout/feedArticleWrapper';
 	@import 'layout/abstractWrapper';
+	@import 'layout/sliderWrapper';

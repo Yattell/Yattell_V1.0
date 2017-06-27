@@ -1,0 +1,25 @@
+/*Slider Wrapper*/
+
+#sliderWrapper {
+  margin-left: 10em;
+  margin-right: 10em;
+  height: 500px;
+
+
+  @include breakpoint(large) {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+
+  @include breakpoint(medium){
+    height: 400px;
+    margin: 0;
+    width: 100%;
+  }
+
+  @include breakpoint(small) {
+    margin-top: 1em;
+    height: 300px;
+    width: 100%;
+  }
+}
